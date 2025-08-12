@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luong Thi Tuyet Anh - Digital Marketing Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .skills h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-level {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-subtitle {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">Tuyet Anh</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Luong Thi Tuyet Anh</h1>
+            <p>Digital Performance Executive | 2.5 Years Experience</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiByeD0iMTUwIiBmaWxsPSJsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCAjNjY3ZWVhIDAlLCAjNzY0YmEyIDEwMCUpIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSI2MCIgZm9udC1mYW1pbHk9IkFyaWFsIj5UQTwvdGV4dD4KPC9zdmc+" alt="Profile" class="profile-image">
+                </div>
+                <div class="about-text">
+                    <h2>Digital Marketing Expert</h2>
+                    <p>Digital Performance Executive with 2.5 years of experience managing 30+ multi-platform clients across diverse industries. Proven expertise in Google Ads, Facebook Ads, TikTok Ads and advanced analytics using GA4, GTM and Looker Studio.</p>
+                    <p>Consistently exceeded performance benchmarks through data-driven optimization. Currently seeking advancement to Senior Digital Performance role by leveraging current experience and expanding expertise in paid advertising and digital data analytics.</p>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">30+</div>
+                            <div>Clients Managed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">2.5</div>
+                            <div>Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$600K+</div>
+                            <div>Ad Spend Managed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Advertising Platforms</h3>
+                    <ul class="skill-list">
+                        <li>Google Ads <span class="skill-level">Expert</span></li>
+                        <li>Facebook Ads <span class="skill-level">Expert</span></li>
+                        <li>TikTok Ads <span class="skill-level">Advanced</span></li>
+                        <li>Shopee Ads <span class="skill-level">Advanced</span></li>
+                        <li>Zalo Ads <span class="skill-level">Advanced</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Analytics & Tracking</h3>
+                    <ul class="skill-list">
+                        <li>Google Analytics 4 <span class="skill-level">Expert</span></li>
+                        <li>Google Tag Manager <span class="skill-level">Advanced</span></li>
+                        <li>Looker Studio <span class="skill-level">Expert</span></li>
+                        <li>Conversion Tracking <span class="skill-level">Expert</span></li>
+                        <li>Data Analysis <span class="skill-level">Advanced</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Campaign Management</h3>
+                    <ul class="skill-list">
+                        <li>Media Planning <span class="skill-level">Expert</span></li>
+                        <li>Budget Optimization <span class="skill-level">Expert</span></li>
+                        <li>A/B Testing <span class="skill-level">Advanced</span></li>
+                        <li>Creative Strategy <span class="skill-level">Advanced</span></li>
+                        <li>Performance Reporting <span class="skill-level">Expert</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Teemazing Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Teemazing - POD E-commerce</div>
+                        <div class="project-subtitle">Google Ads Performance Campaign</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Managed Google Ads campaigns for US market POD products with aggressive scaling during peak seasons including Christmas, Mother's Day, and Father's Day.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">$600K+</div>
+                                <div class="metric-label">Q4 2024 Spend</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">2.0</div>
+                                <div class="metric-label">Target ROAS</div>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Google Ads</span>
+                            <span class="tag">Video Ads</span>
+                            <span class="tag">Demand Gen</span>
+                            <span class="tag">Scaling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neymar Sport Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Neymar Sport</div>
+                        <div class="project-subtitle">Multi-Platform Sports Retail</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Comprehensive digital advertising management across Google Ads, TikTok Ads, Facebook Ads, and Shopee Ads for premium sports footwear brands.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">7.0+</div>
+                                <div class="metric-label">Total ROAS</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">$170K</div>
+                                <div class="metric-label">Monthly Budget</div>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Multi-Platform</span>
+                            <span class="tag">TikTok GMV Max</span>
+                            <span class="tag">Sports Retail</span>
+                            <span class="tag">Brand Campaigns</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Taisun Unidry Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Taisun - Unidry</div>
+                        <div class="project-subtitle">E-commerce Marketplace Campaign</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Managed Shopee Ads campaigns for diaper products, implementing automated bidding strategies and keyword optimization during major sale events.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">10.0+</div>
+                                <div class="metric-label">ROAS Achievement</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">$85K</div>
+                                <div class="metric-label">First Month Spend</div>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Shopee Ads</span>
+                            <span class="tag">Auto Bidding</span>
+                            <span class="tag">Keyword Optimization</span>
+                            <span class="tag">Sales Events</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English Centers Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">10X & SEA English Centers</div>
+                        <div class="project-subtitle">Facebook Lead Generation</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Optimized Facebook Lead Ads campaigns for English language centers, focusing on qualified leads and geographic targeting with continuous creative testing.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">20-30%</div>
+                                <div class="metric-label">Cost Reduction</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">1K+</div>
+                                <div class="metric-label">Page Likes Built</div>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Facebook Ads</span>
+                            <span class="tag">Lead Generation</span>
+                            <span class="tag">Video Creative</span>
+                            <span class="tag">Education</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tan Thanh Container Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Tan Thanh Container</div>
+                        <div class="project-subtitle">B2B Lead Generation Campaign</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Multi-platform campaign management focusing on form conversions and phone calls, with continuous creative and audience optimization across product categories.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">500+</div>
+                                <div class="metric-label">Monthly Leads</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">20%</div>
+                                <div class="metric-label">Cost/Message Reduction</div>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">B2B Marketing</span>
+                            <span class="tag">Multi-Platform</span>
+                            <span class="tag">Lead Generation</span>
+                            <span class="tag">Industrial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- German Market Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">German Market Portfolio</div>
+                        <div class="project-subtitle">International Campaign Management</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Led media team managing multi-channel campaigns for 10+ clients in Nails, Spa & F&B sectors in German market with localized strategies.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">10+</div>
+                                <div class="metric-label">Clients Managed</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Team</div>
+                                <div class="metric-label">Leadership Role</div>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Team Leadership</span>
+                            <span class="tag">International</span>
+                            <span class="tag">Meta Ads</span>
+                            <span class="tag">Local SEO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Ready to take your digital marketing to the next level? Let's discuss how I can help drive your business growth.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:tuyetanh76.work@gmail.com">tuyetanh76.work@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+84911267576">+84 911 267 576</a>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Ho Chi Minh City, Vietnam</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe project cards and skill categories
+        document.querySelectorAll('.project-card, .skill-category, .stat').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
